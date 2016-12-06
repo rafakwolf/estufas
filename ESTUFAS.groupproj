@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{42D29A2F-7184-4F02-8F25-913FC2EC5192}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ESTUFAS.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ESTUFAS">
+        <MSBuild Projects="ESTUFAS.dproj"/>
+    </Target>
+    <Target Name="ESTUFAS:Clean">
+        <MSBuild Projects="ESTUFAS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ESTUFAS:Make">
+        <MSBuild Projects="ESTUFAS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ESTUFAS"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ESTUFAS:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ESTUFAS:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
